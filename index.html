@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        body {
+            text-align: center;
+            background: #00ECB9;
+            font-family: sans-serif;
+            font-weight: 100;
+        }
+
+        h1 {
+            color: #396;
+            font-weight: 750;
+            font-size: 70px;
+            margin: 40px 0px 20px;
+        }
+
+        label {
+            color: rgb(7, 59, 42);
+            font-weight: 750;
+            font-size: 40px;
+            margin: 40px 0px 20px;
+        }
+
+        table {
+            align-content: center;
+        }
+
+        th,
+        td {
+            padding: 15px;
+        }
+
+
+        #clockdiv {
+            font-family: sans-serif;
+            color: #fff;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        #clockdiv>div {
+            padding: 10px;
+            border-radius: 3px;
+            background: #00BF96;
+            display: inline-block;
+        }
+
+        #clockdiv div>span {
+            padding: 15px;
+            border-radius: 3px;
+            background: #00816A;
+            display: inline-block;
+        }
+
+        .smalltext {
+            padding-top: 5px;
+            font-size: 16px;
+        }
+    </style>
+    <link rel="icon" href="favicon.jpg" type="image/gif">
+</head>
+
+<body>
+    <h1>Curfew Clock</h1>
+    <table>
+        <tr>
+            <td>
+                <label>Certification</label>
+            </td>
+            <td>
+                <div id="clockdiv">
+                    <div>
+                        <span id="hours_1"></span>
+                        <div class="smalltext">Hours</div>
+                    </div>
+                    <div>
+                        <span id="minutes_1"></span>
+                        <div class="smalltext">Minutes</div>
+                    </div>
+                    <div>
+                        <span id="seconds_1"></span>
+                        <div class="smalltext">Seconds</div>
+                    </div>
+                </div>
+            </td>
+            <td><a href="https://microsoft.intrepidagile.com/class/cfsi-influence-fy21q3/">link</a></td>
+        </tr>
+        <tr>
+            <td>
+                <label>NYU Application</label>
+            </td>
+            <td>
+                <div id="clockdiv">
+                    <div>
+                        <span id="hours_3"></span>
+                        <div class="smalltext">Hours</div>
+                    </div>
+                    <div>
+                        <span id="minutes_3"></span>
+                        <div class="smalltext">Minutes</div>
+                    </div>
+                    <div>
+                        <span id="seconds_3"></span>
+                        <div class="smalltext">Seconds</div>
+                    </div>
+                </div>
+            </td>
+            <td><a href="https://docs.microsoft.com/en-us/learn/certifications/exams/ms-600">link</a></td>
+        </tr>
+        </tr>
+        <tr>
+            <td>
+                <label>CSFI Influence MOOC</label>
+            </td>
+            <td>
+                <div id="clockdiv">
+                    <div>
+                        <span id="hours_2"></span>
+                        <div class="smalltext">Hours</div>
+                    </div>
+                    <div>
+                        <span id="minutes_2"></span>
+                        <div class="smalltext">Minutes</div>
+                    </div>
+                    <div>
+                        <span id="seconds_2"></span>
+                        <div class="smalltext">Seconds</div>
+                    </div>
+                </div>
+            </td>
+            <td><a href="https://apply.gsas.nyu.edu/account/login?r=https%3a%2f%2fapply.gsas.nyu.edu%2fapply%2f">link</a></td>
+        </tr>
+    </table>
+
+    <script>
+
+        createDeadlines(new Date("Feb 1, 2021 00:00:00").getTime(), "1");
+        createDeadlines(new Date("Feb 12, 2021 00:00:00").getTime(), "2");
+        createDeadlines(new Date("Feb 12, 2021 00:00:00").getTime(), "3");
+
+        function createDeadlines(date, n) {
+            var deadline = date;
+            var x = setInterval(function () {
+                var now = new Date().getTime();
+                var t = deadline - now;
+                var hours = Math.floor(t / (1000 * 60 * 60));
+                var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((t % (1000 * 60)) / 1000);
+                document.getElementById("hours_" + n.toString()).innerHTML = hours;
+                document.getElementById("minutes_" + n.toString()).innerHTML = minutes;
+                document.getElementById("seconds_" + n.toString()).innerHTML = seconds;
+                if (t < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+
+</html>

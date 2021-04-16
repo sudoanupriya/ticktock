@@ -80,6 +80,10 @@
             <td>
                 <div id="clockdiv">
                     <div>
+                        <span id="days_1"></span>
+                        <div class="smalltext">Hours</div>
+                    </div>
+                    <div>
                         <span id="hours_1"></span>
                         <div class="smalltext">Hours</div>
                     </div>
@@ -101,6 +105,10 @@
             </td>
             <td>
                 <div id="clockdiv">
+                    <div>
+                        <span id="days_2"></span>
+                        <div class="smalltext">Hours</div>
+                    </div>
                     <div>
                         <span id="hours_2"></span>
                         <div class="smalltext">Hours</div>
@@ -124,6 +132,10 @@
             </td>
             <td>
                 <div id="clockdiv">
+                    <div>
+                        <span id="days_3"></span>
+                        <div class="smalltext">Hours</div>
+                    </div>
                     <div>
                         <span id="hours_3"></span>
                         <div class="smalltext">Hours</div>
@@ -153,9 +165,12 @@
             var x = setInterval(function () {
                 var now = new Date().getTime();
                 var t = deadline - now;
+                var days = Math.floor(t / (1000 * 60 * 60 * 24));
                 var hours = Math.floor(t / (1000 * 60 * 60));
                 var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((t % (1000 * 60)) / 1000);
+                
+                document.getElementById("days" + n.toString()).innerHTML = days;
                 document.getElementById("hours_" + n.toString()).innerHTML = hours;
                 document.getElementById("minutes_" + n.toString()).innerHTML = minutes;
                 document.getElementById("seconds_" + n.toString()).innerHTML = seconds;

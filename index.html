@@ -162,8 +162,8 @@
 
     <script>
 
-        createDeadlines(new Date("Jan 17, 2022 05:30:00").getTime(), "1");
-        createDeadlines(new Date("Jan 14, 2022 05:30:00").getTime(), "2");
+        createDeadlines(new Date("Jan 17, 2022 04:00:00").getTime(), "1");
+        createDeadlines(new Date("Jan 14, 2022 04:00:00").getTime(), "2");
         //createDeadlines(new Date("May 1, 2021 00:00:00").getTime(), "3");
 
         function createDeadlines(date, n) {
@@ -172,7 +172,7 @@
                 var now = new Date().getTime();
                 var t = deadline - now;
                 var days = Math.floor(t / (1000 * 60 * 60 * 24));
-                var hours = Math.floor(t % (1000 * 60 * 60));
+                var hours = Math.floor(t % (1000 * 60 * 60 )) - days;
                 var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((t % (1000 * 60)) / 1000);
                 
